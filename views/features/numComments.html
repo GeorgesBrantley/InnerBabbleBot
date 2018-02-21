@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+<!-- {{=BEAUTIFY(response._vars)}} -->
+<h1 class="text-center">{{=gn}} Commentators</h1>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{for k,v in sorted(ans.items(), key=lambda x: x[1], reverse=True): }}
+            <tr>
+                <td>{{=k}}</td>
+                <td>{{=v}}</td>
+            </tr>
+            {{pass}}
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary btn-block" href="{{=URL('core','postToGroupMe',vars=dict(message=rich))}}">
+        Post Rankings To GroupMe
+    </a>
+</div>
