@@ -1,0 +1,29 @@
+{{extend 'layout.html'}}
+<div class="container">
+   <h1 class="text-center">{{=n}}'s Most Liked Comments!</h1>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Message</th>
+                <th>Likes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{for x in m: }}
+            <tr>
+                <td>{{=x[0]}}</td>
+                <td>{{=x[1]}}</td>
+            </tr>
+            {{pass}}
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary btn-block" href="{{=URL('core','postToGroupMe',vars=dict(message=rich))}}">
+        Post Comments To GroupMe
+    </a>
+
+    <a class="btn btn-outline-secondary btn-block" href="{{=URL('main', vars=dict(id=request.vars.id))}}">
+        Return to User Page
+    </a>
+</div>
